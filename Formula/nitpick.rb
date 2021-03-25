@@ -8,8 +8,9 @@ class Nitpick < Formula
   license "MIT"
   head "https://github.com/andreoliwa/nitpick.git", branch: "develop"
 
-  depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  # FIXME
+  # depends_on "rust" => :build
+  # depends_on "openssl@1.1"
   depends_on "python@3.9"
 
   resource "attrs" do
