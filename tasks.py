@@ -6,51 +6,14 @@
 from invoke import task, Exit
 from pathlib import Path
 
-# This is needed for linuxbrew
-EXTRA_PACKAGES = {"cryptography", "pyOpenSSL"}
-
-# Exclude all other packages, because they are already installed with nitpick's .tar.gz
-# TODO: This list is manually populated; do it automatically somehow
-EXCLUDE_PACKAGES = {
-    "attrs",
-    "autorepr",
-    "cachy",
-    "certifi",
-    "cffi",
-    "chardet",
-    "click",
-    "configupdater",
-    "dictdiffer",
-    "flake8",
-    "identify",
-    "idna",
-    "jmespath",
-    "loguru",
-    "marshmallow-polyfield",
-    "marshmallow",
-    "mccabe",
-    "more-itertools",
-    "more",
-    "pluggy",
-    "pycodestyle",
-    "pycparser",
-    "pydantic",
-    "pyflakes",
-    "python-slugify",
-    "python",
-    "requests",
-    "ruamel-yaml-clib",
-    "ruamel-yaml",
-    "ruamel",
-    "six",
-    "sortedcontainers",
-    "text-unidecode",
-    "text",
-    "toml",
-    "tomlkit",
-    "typing-extensions",
-    "typing",
-    "urllib3",
+# Package config by formula
+PACKAGES_BY_FORMULA = {
+    "nitpick": {
+        "extra": [
+            # FIXME: "cryptography", "pyOpenSSL"
+        ],
+        "exclude": [],
+    }
 }
 
 
@@ -75,6 +38,11 @@ def formula_name_with_tap(formula: str) -> str:
 def brew_install(c, interactive=False, head=False, debug=False):
     """Install a Homebrew formula."""
     formula = choose_formula(c)
+    full = formula_name_with_tap(formula)
+
+    # Try to uninstall first
+    c.run(f"brew uninstall {full}", warn=True)
+
     cmd = ["brew install"]
     if head:
         cmd.append("--HEAD")
@@ -82,7 +50,7 @@ def brew_install(c, interactive=False, head=False, debug=False):
         cmd.append("--interactive")
     if debug:
         cmd.append("--debug")
-    cmd.append(formula)
+    cmd.append(full)
     c.run(" ".join(cmd))
 
 
@@ -93,8 +61,14 @@ def brew_python(c, package=""):
     full = formula_name_with_tap(formula)
     package = package or formula
 
-    c.run(
-        f"brew update-python-resources {full} --package-name {package}"
-        f" --extra-packages {','.join(EXTRA_PACKAGES)}"
-        f" --exclude-packages {','.join(EXCLUDE_PACKAGES)}"
-    )
+    cmd = ["brew", "update-python-resources", full, "--package-name", package]
+
+    formula_config = PACKAGES_BY_FORMULA.get(formula, {})
+    extra = formula_config["extra"]
+    if extra:
+        cmd.extend(["--extra-packages", ",".join(extra)])
+    exclude = formula_config["exclude"]
+    if exclude:
+        cmd.extend(["--exclude-packages", ",".join(exclude)])
+
+    c.run(" ".join(cmd))
