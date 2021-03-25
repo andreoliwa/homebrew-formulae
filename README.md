@@ -12,6 +12,7 @@ Or `brew tap andreoliwa/formulae` and then `brew install <formula>`.
 
 Useful links:
 
+- [Homebrew](https://github.com/Homebrew/)
 - [homebrew-core/jrnl.rb at master · Homebrew/homebrew-core](https://github.com/Homebrew/homebrew-core/blob/master/Formula/jrnl.rb)
 - [Formula Cookbook — Homebrew Documentation](https://docs.brew.sh/Formula-Cookbook)
 - [Python for Formula Authors — Homebrew Documentation](https://docs.brew.sh/Python-for-Formula-Authors)
