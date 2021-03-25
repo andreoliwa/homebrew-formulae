@@ -1,3 +1,8 @@
+"""Invoke tasks.
+
+- https://github.com/pyinvoke/invoke
+- http://docs.pyinvoke.org/en/stable/api/runners.html#invoke.runners.Runner.run
+"""
 from invoke import task
 
 
