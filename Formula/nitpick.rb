@@ -8,6 +8,11 @@ class Nitpick < Formula
   license "MIT"
   head "https://github.com/andreoliwa/nitpick.git", :branch => "develop"
 
+  bottle do
+    root_url "https://github.com/andreoliwa/nitpick/releases/download/v0.26.0"
+    sha256 cellar: :any_skip_relocation, big_sur: "5889e0a73b8e053262cd7df337d447d661c590772ddf39f69176b1fc1e6a4461"
+  end
+
   depends_on "python@3.9"
 
   resource "attrs" do
