@@ -10,7 +10,9 @@ from pathlib import Path
 PACKAGES_BY_FORMULA = {
     "nitpick": {
         "extra": [
-            # FIXME: "cryptography", "pyOpenSSL"
+            # To avoid pip._internal.exceptions.InstallationError:
+            # Could not build wheels for cryptography which use PEP 517 and cannot be installed directly
+            "cryptography"
         ],
         "exclude": [],
     }
