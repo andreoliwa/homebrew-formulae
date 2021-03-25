@@ -8,12 +8,12 @@ class Nitpick < Formula
   license "MIT"
   head "https://github.com/andreoliwa/nitpick.git", branch: "develop"
 
-  bottle do
-    root_url "https://github.com/andreoliwa/nitpick/releases/download/v0.26.0"
-    sha256 cellar: :any_skip_relocation, big_sur: "5889e0a73b8e053262cd7df337d447d661c590772ddf39f69176b1fc1e6a4461"
-  end
-
+  # Some dependencies below were added to fix an error on the workflow:
+  depends_on "cmake" # Error: No available formula or cask with the name "cmake".
+  depends_on "ninja" # Error: No available formula or cask with the name "ninja".
   depends_on "python@3.9"
+  depends_on "rust"
+  depends_on "sphinx-doc" # Error: No available formula or cask with the name "sphinx-doc".
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/f0/cb/80a4a274df7da7b8baf083249b0890a0579374c3d74b5ac0ee9291f912dc/attrs-20.3.0.tar.gz"
@@ -35,6 +35,11 @@ class Nitpick < Formula
     sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
   end
 
+  resource "cffi" do
+    url "https://files.pythonhosted.org/packages/a8/20/025f59f929bbcaa579704f443a438135918484fffaacfaddba776b374563/cffi-1.14.5.tar.gz"
+    sha256 "fd78e5fee591709f32ef6edb9a015b4aa1a5022598e36227500c8f4e02328d9c"
+  end
+
   resource "chardet" do
     url "https://files.pythonhosted.org/packages/ee/2d/9cdc2b527e127b4c9db64b86647d567985940ac3698eeabc7ffaccb4ea61/chardet-4.0.0.tar.gz"
     sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
@@ -48,6 +53,11 @@ class Nitpick < Formula
   resource "ConfigUpdater" do
     url "https://files.pythonhosted.org/packages/1e/c7/d0cea2bbd01cdcbd6106074429f3dd0cca0126084cbcd757c2b576fbc17f/ConfigUpdater-2.0.tar.gz"
     sha256 "6a60447fb25e5cb5036cdd5761287ac5649135a49094bc8bd71d999417483441"
+  end
+
+  resource "cryptography" do
+    url "https://files.pythonhosted.org/packages/fa/2d/2154d8cb773064570f48ec0b60258a4522490fcb115a6c7c9423482ca993/cryptography-3.4.6.tar.gz"
+    sha256 "2d32223e5b0ee02943f32b19245b61a62db83a882f0e76cc564e1cec60d48f87"
   end
 
   resource "dictdiffer" do
@@ -108,6 +118,11 @@ class Nitpick < Formula
   resource "pycodestyle" do
     url "https://files.pythonhosted.org/packages/02/b3/c832123f2699892c715fcdfebb1a8fdeffa11bb7b2350e46ecdd76b45a20/pycodestyle-2.7.0.tar.gz"
     sha256 "c389c1d06bf7904078ca03399a4816f974a1d590090fecea0c63ec26ebaf1cef"
+  end
+
+  resource "pycparser" do
+    url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
+    sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
   end
 
   resource "pydantic" do
@@ -184,6 +199,6 @@ class Nitpick < Formula
     #
     # The installed folder is not in the path, so use the entire path to any
     # executables being tested: `system "#{bin}/program", "do", "something"`.
-    system "true" # FIXME
+    assert_match "Usage: nitpick [OPTIONS] COMMAND [ARGS]...", shell_output("#{bin}/nitpick")
   end
 end
