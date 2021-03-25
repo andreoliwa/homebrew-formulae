@@ -8,21 +8,7 @@ jobs:
   test-bot:
     strategy:
       matrix:
-        # TODO: failing on ubuntu-latest:
-        # ==> brew uninstall --force autoconf automake berkeley-db cmake docbook docbook-xsl flex fontconfig freeglut freetype ghostscript glib gpatch gperf groff help2man jasper jpeg json-c libdrm libedit libelf libgcrypt libgpg-error libidn libpciaccess libpng libtiff libtool libva libvdpau libxdamage libxfixes libxi libxinerama libxrandr libxrender libxshmfence libxslt libxv libxvmc libxxf86vm llvm lm-sensors mesa mesa-glu meson netpbm ninja pcre perl psutils sphinx-doc texinfo uchardet util-macros wayland wayland-protocols xcb-proto xinput xtrans
-        # ==> FAILED
-        # Error: No available formula or cask with the name "autoconf".
-
-        # ==> brew install --only-dependencies ./nitpick--0.26.0.x86_64_linux.bottle.1.tar.gz
-        # ==> brew install ./nitpick--0.26.0.x86_64_linux.bottle.1.tar.gz
-        # ==> brew linkage --test andreoliwa/formulae/nitpick
-        # ==> brew install --only-dependencies --include-test andreoliwa/formulae/nitpick
-        # ==> brew test --verbose andreoliwa/formulae/nitpick
-        # ==> brew uninstall --force binutils bison brotli bzip2 c-ares curl expat gdbm gettext jemalloc krb5 libev libffi libidn2 libmetalink libpthread-stubs libssh2 libunistring libx11 libxau libxcb libxdmcp libxext libxml2 m4 mpdecimal ncurses nghttp2 openldap openssl@1.1 pkg-config python@3.9 readline rtmpdump rust sqlite tcl-tk unzip util-linux xorgproto xz zlib zstd
-        # Error: 1 failed step!
-        # brew uninstall --force autoconf automake berkeley-db cmake docbook docbook-xsl flex fontconfig freeglut freetype ghostscript glib gpatch gperf groff help2man jasper jpeg json-c libdrm libedit libelf libgcrypt libgpg-error libidn libpciaccess libpng libtiff libtool libva libvdpau libxdamage libxfixes libxi libxinerama libxrandr libxrender libxshmfence libxslt libxv libxvmc libxxf86vm llvm lm-sensors mesa mesa-glu meson netpbm ninja pcre perl psutils sphinx-doc texinfo uchardet util-macros wayland wayland-protocols xcb-proto xinput xtrans
-        # Error: Process completed with exit code 1.
-        os: [macos-latest]
+        os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Set up Homebrew
