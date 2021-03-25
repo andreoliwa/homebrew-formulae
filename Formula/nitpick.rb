@@ -10,6 +10,11 @@ class Nitpick < Formula
 
   depends_on "python@3.9"
 
+  resource "cryptography" do
+    url "https://files.pythonhosted.org/packages/fa/2d/2154d8cb773064570f48ec0b60258a4522490fcb115a6c7c9423482ca993/cryptography-3.4.6.tar.gz"
+    sha256 "2d32223e5b0ee02943f32b19245b61a62db83a882f0e76cc564e1cec60d48f87"
+  end
+
   def install
     virtualenv_install_with_resources
   end

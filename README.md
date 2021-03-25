@@ -18,3 +18,4 @@ Useful links:
 - [Bottles (Binary Packages) — Homebrew Documentation](https://docs.brew.sh/Bottles)
 - [Fix casks with `depends_on` that reference pre-Yosemite · Issue #58046 · Homebrew/homebrew-cask](https://github.com/Homebrew/homebrew-cask/issues/58046)
 - [Homebrew tap with bottles uploaded to GitHub Releases — Homebrew](https://brew.sh/2020/11/18/homebrew-tap-with-bottles-uploaded-to-github-releases/)
+- [Python — Homebrew Documentation](https://docs.brew.sh/Homebrew-and-Python)
