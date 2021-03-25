@@ -8,11 +8,18 @@ class Nitpick < Formula
   license "MIT"
   head "https://github.com/andreoliwa/nitpick.git", branch: "develop"
 
+  depends_on "rust" => :build
+  depends_on "openssl@1.1"
   depends_on "python@3.9"
 
   resource "cryptography" do
     url "https://files.pythonhosted.org/packages/fa/2d/2154d8cb773064570f48ec0b60258a4522490fcb115a6c7c9423482ca993/cryptography-3.4.6.tar.gz"
     sha256 "2d32223e5b0ee02943f32b19245b61a62db83a882f0e76cc564e1cec60d48f87"
+  end
+
+  resource "pyOpenSSL" do
+    url "https://files.pythonhosted.org/packages/98/cd/cbc9c152daba9b5de6094a185c66f1c6eb91c507f378bb7cad83d623ea88/pyOpenSSL-20.0.1.tar.gz"
+    sha256 "4c231c759543ba02560fcd2480c48dcec4dae34c9da7d3747c508227e0624b51"
   end
 
   def install

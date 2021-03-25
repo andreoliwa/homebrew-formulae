@@ -7,7 +7,7 @@ from invoke import task, Exit
 from pathlib import Path
 
 # This is needed for linuxbrew
-EXTRA_PACKAGES = {"cryptography"}
+EXTRA_PACKAGES = {"cryptography", "pyOpenSSL"}
 
 # Exclude all other packages, because they are already installed with nitpick's .tar.gz
 # TODO: This list is manually populated; do it automatically somehow
@@ -42,6 +42,7 @@ EXCLUDE_PACKAGES = {
     "ruamel-yaml-clib",
     "ruamel-yaml",
     "ruamel",
+    "six",
     "sortedcontainers",
     "text-unidecode",
     "text",
