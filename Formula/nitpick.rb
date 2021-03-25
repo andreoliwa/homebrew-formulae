@@ -8,6 +8,13 @@ class Nitpick < Formula
   license "MIT"
   head "https://github.com/andreoliwa/nitpick.git", branch: "develop"
 
+  bottle do
+    root_url "https://github.com/andreoliwa/homebrew-formulae/releases/download/nitpick-0.26.0"
+    rebuild 1
+    sha256 cellar: :any,                 catalina:     "060f39b3bf30d7bca66096ab050f9c2098ebee10d0668f8d8b7c1b6cbfe5f5f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "dde46a2b84567458189c8a1db3dd8417805c9906d310c61171297f4600f7d163"
+  end
+
   # Some dependencies below were added to fix errors on the workflow:
   depends_on "cmake" # Error: No available formula or cask with the name "cmake".
   depends_on "ninja" # Error: No available formula or cask with the name "ninja".
