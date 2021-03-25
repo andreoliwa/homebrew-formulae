@@ -8,6 +8,7 @@ class Nitpick < Formula
   license "MIT"
   head "https://github.com/andreoliwa/nitpick.git", branch: "develop"
 
+  depends_on "ninja"
   depends_on "python@3.9"
   depends_on "rust"
 
