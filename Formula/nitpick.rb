@@ -8,7 +8,7 @@ class Nitpick < Formula
   license "MIT"
   head "https://github.com/andreoliwa/nitpick.git", branch: "develop"
 
-  # Some dependencies below were added to fix an error on the workflow:
+  # Some dependencies below were added to fix errors on the workflow:
   depends_on "cmake" # Error: No available formula or cask with the name "cmake".
   depends_on "ninja" # Error: No available formula or cask with the name "ninja".
   depends_on "python@3.9"
