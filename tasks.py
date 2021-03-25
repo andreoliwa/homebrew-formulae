@@ -37,22 +37,29 @@ def formula_name_with_tap(formula: str) -> str:
 
 
 @task
-def brew_install(c, interactive=False, head=False, debug=False):
+def brew_install(c, interactive=False, head=False, debug=False, test_only=False):
     """Install a Homebrew formula."""
     formula = choose_formula(c)
-    full = formula_name_with_tap(formula)
+    full_formula_name = formula_name_with_tap(formula)
 
-    # Try to uninstall first
-    c.run(f"brew uninstall {full}", warn=True)
+    if not test_only:
+        # Try to uninstall first
+        c.run(f"brew uninstall {full_formula_name}", warn=True)
 
-    cmd = ["brew install"]
+    common = []
     if head:
-        cmd.append("--HEAD")
-    if interactive:
-        cmd.append("--interactive")
+        common.append("--HEAD")
     if debug:
-        cmd.append("--debug")
-    cmd.append(full)
+        common.append("--debug")
+
+    if not test_only:
+        cmd = ["brew install"] + common
+        if interactive:
+            cmd.append("--interactive")
+        cmd.append(full_formula_name)
+        c.run(" ".join(cmd))
+
+    cmd = ["brew test"] + common + [formula]
     c.run(" ".join(cmd))
 
 
