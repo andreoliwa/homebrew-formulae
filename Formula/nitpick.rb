@@ -9,10 +9,9 @@ class Nitpick < Formula
   head "https://github.com/andreoliwa/nitpick.git", branch: "develop"
 
   bottle do
-    root_url "https://github.com/andreoliwa/homebrew-formulae/releases/download/nitpick-0.26.0"
-    rebuild 1
-    sha256 cellar: :any,                 catalina:     "060f39b3bf30d7bca66096ab050f9c2098ebee10d0668f8d8b7c1b6cbfe5f5f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "dde46a2b84567458189c8a1db3dd8417805c9906d310c61171297f4600f7d163"
+    root_url "https://github.com/andreoliwa/homebrew-formulae/releases/download/nitpick-0.31.0"
+    sha256 cellar: :any,                 big_sur:      "3b49283fb3af4bb6bc56f848c53a747145c45be1a25e72c8306f0402f89aab4a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "65b456c6de5d475443dde57e89b472a8bdd6184ed5a59ea46ce02f1d8a80547d"
   end
 
   # Some dependencies below were added to fix errors on the workflow:
