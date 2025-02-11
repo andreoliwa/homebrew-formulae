@@ -6,7 +6,8 @@ repos:
   - repo: local
     hooks:
       - id: brew-style
-        name: brew style andreoliwa/formulae
-        entry: brew style andreoliwa/formulae --fix
+        name: brew style
+        # To check the installed tap:
+        # brew style andreoliwa/formulae
+        entry: brew style --fix .
         language: ruby
-        types: [ruby]
