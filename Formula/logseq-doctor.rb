@@ -47,6 +47,6 @@ class LogseqDoctor < Formula
   end
 
   test do
-    assert_match "Logseq Doctor (Go) heals your Markdown files for Logseq.", shell_output("#{bin}/lsdg --help")
+    assert_match "Logseq Doctor (Go) heals your Markdown files for Logseq.", shell_output("#{bin}/lsdg")
   end
 end
