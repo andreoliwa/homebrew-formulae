@@ -5,21 +5,21 @@
 class LogseqDoctor < Formula
   desc "Heal your Logseq Markdown files"
   homepage "https://github.com/andreoliwa/logseq-doctor"
-  version "0.4.0"
+  version "0.5.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/andreoliwa/logseq-doctor/releases/download/v0.4.0/logseq-doctor_Darwin_x86_64.tar.gz"
-      sha256 "4d5a06b0c60cfda4f057eef874d48595e7bf6b9bfd700abd8ccc09bf4ca4ab28"
+      url "https://github.com/andreoliwa/logseq-doctor/releases/download/v0.5.0/logseq-doctor_Darwin_x86_64.tar.gz"
+      sha256 "71f9f07068d6ecee578a12e7159ebe0bf0a6e7966e6e873efc8991871fc44b23"
 
       def install
         bin.install "logseq-doctor" => "lsdg"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/andreoliwa/logseq-doctor/releases/download/v0.4.0/logseq-doctor_Darwin_arm64.tar.gz"
-      sha256 "eb52b954ce7731b8b6f4c529e4b1c70fb14659688031d3ce4dee97df79185dcb"
+      url "https://github.com/andreoliwa/logseq-doctor/releases/download/v0.5.0/logseq-doctor_Darwin_arm64.tar.gz"
+      sha256 "8e822b19041c479482ef43eca085df6f81fd939edec28382b6599bb64dc9393d"
 
       def install
         bin.install "logseq-doctor" => "lsdg"
@@ -29,16 +29,16 @@ class LogseqDoctor < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/andreoliwa/logseq-doctor/releases/download/v0.4.0/logseq-doctor_Linux_x86_64.tar.gz"
-      sha256 "9c383784ac47a8ffb8e48a46fedd009169fb9b099fe9cb58966bcfa9e3678481"
+      url "https://github.com/andreoliwa/logseq-doctor/releases/download/v0.5.0/logseq-doctor_Linux_x86_64.tar.gz"
+      sha256 "748c4f8d7cba0a8e4af039da39feaed649e8a18e38ba7eb56d279229cc77a478"
 
       def install
         bin.install "logseq-doctor" => "lsdg"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/andreoliwa/logseq-doctor/releases/download/v0.4.0/logseq-doctor_Linux_arm64.tar.gz"
-      sha256 "1893dfd8a85c2d709ff61bf0b3d4ff58b1eeac0b84188447b1ebd0f4e471d4a4"
+      url "https://github.com/andreoliwa/logseq-doctor/releases/download/v0.5.0/logseq-doctor_Linux_arm64.tar.gz"
+      sha256 "936b764596a8664a191b2a5f97bf41958fb24295c6fbcb1bf7db9b8ebc6290e5"
 
       def install
         bin.install "logseq-doctor" => "lsdg"
