@@ -14,7 +14,7 @@ class LogseqDoctor < Formula
       sha256 "71f9f07068d6ecee578a12e7159ebe0bf0a6e7966e6e873efc8991871fc44b23"
 
       def install
-        bin.install "logseq-doctor" => "lsdg"
+        bin.install "lsd"
       end
     end
     if Hardware::CPU.arm?
@@ -22,7 +22,7 @@ class LogseqDoctor < Formula
       sha256 "8e822b19041c479482ef43eca085df6f81fd939edec28382b6599bb64dc9393d"
 
       def install
-        bin.install "logseq-doctor" => "lsdg"
+        bin.install "lsd"
       end
     end
   end
@@ -33,7 +33,7 @@ class LogseqDoctor < Formula
       sha256 "748c4f8d7cba0a8e4af039da39feaed649e8a18e38ba7eb56d279229cc77a478"
 
       def install
-        bin.install "logseq-doctor" => "lsdg"
+        bin.install "lsd"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
@@ -41,12 +41,12 @@ class LogseqDoctor < Formula
       sha256 "936b764596a8664a191b2a5f97bf41958fb24295c6fbcb1bf7db9b8ebc6290e5"
 
       def install
-        bin.install "logseq-doctor" => "lsdg"
+        bin.install "lsd"
       end
     end
   end
 
   test do
-    assert_match "Logseq Doctor (Go) heals your Markdown files for Logseq.", shell_output("#{bin}/lsdg")
+    assert_match "Logseq Doctor (Go) heals your Markdown files for Logseq.", shell_output("#{bin}/lsd")
   end
 end
