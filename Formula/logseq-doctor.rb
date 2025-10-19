@@ -13,7 +13,7 @@ class LogseqDoctor < Formula
       url "https://github.com/andreoliwa/logseq-doctor/releases/download/v0.6.0/logseq-doctor_0.6.0_Darwin_x86_64.tar.gz"
       sha256 "8b8622dcc1fba40862b780a9041695fc7b2b7dd8174d1db28523e49e733e5988"
 
-      def install
+      define_method :install do
         bin.install "lqd"
       end
     end
@@ -21,7 +21,7 @@ class LogseqDoctor < Formula
       url "https://github.com/andreoliwa/logseq-doctor/releases/download/v0.6.0/logseq-doctor_0.6.0_Darwin_arm64.tar.gz"
       sha256 "9dce099ffec65cd1f7356aa644e1f0258342b954daca8583978da1676f439c20"
 
-      def install
+      define_method :install do
         bin.install "lqd"
       end
     end
@@ -31,14 +31,14 @@ class LogseqDoctor < Formula
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/andreoliwa/logseq-doctor/releases/download/v0.6.0/logseq-doctor_0.6.0_Linux_x86_64.tar.gz"
       sha256 "d6a9c01248da79fcdec4c8b54268ff0fa7e329484b54307bdc0c99ba2973bbc3"
-      def install
+      define_method :install do
         bin.install "lqd"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/andreoliwa/logseq-doctor/releases/download/v0.6.0/logseq-doctor_0.6.0_Linux_arm64.tar.gz"
       sha256 "f2661d5b28271867dc81c21b37d771ca09b4bedef4078d6f93d84ed051c5beaf"
-      def install
+      define_method :install do
         bin.install "lqd"
       end
     end
