@@ -5,48 +5,46 @@
 class LogseqDoctor < Formula
   desc "Heal your Logseq Markdown files"
   homepage "https://github.com/andreoliwa/logseq-doctor"
-  version "0.5.0"
+  version "0.6.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/andreoliwa/logseq-doctor/releases/download/v0.5.0/logseq-doctor_Darwin_x86_64.tar.gz"
-      sha256 "71f9f07068d6ecee578a12e7159ebe0bf0a6e7966e6e873efc8991871fc44b23"
+      url "https://github.com/andreoliwa/logseq-doctor/releases/download/v0.6.0/logseq-doctor_0.6.0_Darwin_x86_64.tar.gz"
+      sha256 "8b8622dcc1fba40862b780a9041695fc7b2b7dd8174d1db28523e49e733e5988"
 
       def install
-        bin.install "lsd"
+        bin.install "lqd"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/andreoliwa/logseq-doctor/releases/download/v0.5.0/logseq-doctor_Darwin_arm64.tar.gz"
-      sha256 "8e822b19041c479482ef43eca085df6f81fd939edec28382b6599bb64dc9393d"
+      url "https://github.com/andreoliwa/logseq-doctor/releases/download/v0.6.0/logseq-doctor_0.6.0_Darwin_arm64.tar.gz"
+      sha256 "9dce099ffec65cd1f7356aa644e1f0258342b954daca8583978da1676f439c20"
 
       def install
-        bin.install "lsd"
+        bin.install "lqd"
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/andreoliwa/logseq-doctor/releases/download/v0.5.0/logseq-doctor_Linux_x86_64.tar.gz"
-      sha256 "748c4f8d7cba0a8e4af039da39feaed649e8a18e38ba7eb56d279229cc77a478"
-
+      url "https://github.com/andreoliwa/logseq-doctor/releases/download/v0.6.0/logseq-doctor_0.6.0_Linux_x86_64.tar.gz"
+      sha256 "d6a9c01248da79fcdec4c8b54268ff0fa7e329484b54307bdc0c99ba2973bbc3"
       def install
-        bin.install "lsd"
+        bin.install "lqd"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/andreoliwa/logseq-doctor/releases/download/v0.5.0/logseq-doctor_Linux_arm64.tar.gz"
-      sha256 "936b764596a8664a191b2a5f97bf41958fb24295c6fbcb1bf7db9b8ebc6290e5"
-
+      url "https://github.com/andreoliwa/logseq-doctor/releases/download/v0.6.0/logseq-doctor_0.6.0_Linux_arm64.tar.gz"
+      sha256 "f2661d5b28271867dc81c21b37d771ca09b4bedef4078d6f93d84ed051c5beaf"
       def install
-        bin.install "lsd"
+        bin.install "lqd"
       end
     end
   end
 
   test do
-    assert_match "Logseq Doctor (Go) heals your Markdown files for Logseq.", shell_output("#{bin}/lsd")
+    assert_match "Logseq Doctor heals your Markdown files for Logseq.", shell_output("#{bin}/lqd")
   end
 end
