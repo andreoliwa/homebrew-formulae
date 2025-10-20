@@ -7,6 +7,7 @@ class LogseqDoctor < Formula
   homepage "https://github.com/andreoliwa/logseq-doctor"
   version "0.6.0"
   license "MIT"
+  disable! date: "2025-10-19", because: "the cask should be used now instead", replacement_cask: "logseq-doctor"
 
   on_macos do
     if Hardware::CPU.intel?
