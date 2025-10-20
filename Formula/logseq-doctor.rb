@@ -11,8 +11,8 @@ class LogseqDoctor < Formula
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/andreoliwa/logseq-doctor/releases/download/v0.6.0/logseq-doctor_0.6.0_Darwin_x86_64.tar.gz"
-      sha256 "8b8622dcc1fba40862b780a9041695fc7b2b7dd8174d1db28523e49e733e5988"
+      url "https://github.com/andreoliwa/logseq-doctor/archive/refs/tags/v0.6.1.tar.gz"
+      sha256 "5676693fd6ae70bd0fb176b9240d8bc18f72c8c25a1fb1f4ff81122088550539"
 
       define_method :install do
         bin.install "lqd"
