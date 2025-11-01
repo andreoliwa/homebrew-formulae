@@ -3,7 +3,7 @@ cask "logseq-doctor" do
   name "logseq-doctor"
   desc "Heal your Logseq Markdown files"
   homepage "https://github.com/andreoliwa/logseq-doctor"
-  version "0.6.2"
+  version "0.7.0"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,22 +14,22 @@ cask "logseq-doctor" do
   on_macos do
     on_intel do
       url "https://github.com/andreoliwa/logseq-doctor/releases/download/v#{version}/logseq-doctor_#{version}_Darwin_x86_64.tar.gz"
-      sha256 "ec418fa4948ff41780fa84c33a4a4ed20dc18d746295a9e217d62fa8b3de097f"
+      sha256 "f0406d2757c9a143fee5023c493bb40afa4bf3829ac5758b81cc986ef737bd2f"
     end
     on_arm do
       url "https://github.com/andreoliwa/logseq-doctor/releases/download/v#{version}/logseq-doctor_#{version}_Darwin_arm64.tar.gz"
-      sha256 "0bc531df8cc15b1c832275d275308014a3ca80ead4ae2c0570ece3e7c6991b47"
+      sha256 "d548423042897c94f45b05a2e74f73422981aa6b332654fe248089742dd9c0d7"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/andreoliwa/logseq-doctor/releases/download/v#{version}/logseq-doctor_#{version}_Linux_x86_64.tar.gz"
-      sha256 "f46b204512779773e11a7d05f10a3e598c8a641cc598ad9dffae7ec26d8ce878"
+      sha256 "d002ab1b139e36f7664fc1e76ea6683648a642a4f05b0f578fe476e8a8cf829d"
     end
     on_arm do
       url "https://github.com/andreoliwa/logseq-doctor/releases/download/v#{version}/logseq-doctor_#{version}_Linux_arm64.tar.gz"
-      sha256 "2855dd66366c3450f982aa9e49486fcda7d1f2d3a3d0d64d37a8a1170adc44b9"
+      sha256 "1cb2d386e9a475e5beedcb7d031349155734d6670477b3c0d07207bcce3e2ae3"
     end
   end
 
