@@ -35,5 +35,4 @@ cask "logseq-doctor" do
   binary "logseq-doctor"
 
   # No zap stanza required
-
 end
